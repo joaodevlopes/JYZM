@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jyz</title>
     <link rel="stylesheet" href="style.css">
-
     <!-- ICONS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
@@ -15,7 +14,7 @@
     <!--NAVBAR-->
     <nav class="navbar">
         <div class="logo">
-            <img src="logo.png" alt="logo">
+            <img src="img/logojyz.png" alt="logo">
         </div>
 
         <button class="menu-toggle" aria-label="Abrir menu">
@@ -32,39 +31,64 @@
         </ul>
 
         <div class="icons">
-            <input type="text" placeholder="Pesquisar" class="inputFilter">
-            <i class="fas fa-search"></i>
-            <i class="fas fa-user" id="userIcon"></i>
+            <div class="search-container">
+                <input type="text" placeholder="Pesquisar" class="inputFilter">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="cart-icon-container">
+                <i class="fas fa-shopping-cart" id="cartIcon"></i>
+                <span class="cart-counter">0</span>
+            </div>
             <button class="theme-toggle" id="themeToggle" aria-label="Alternar modo claro/escuro">
                 <i class="fas fa-moon"></i>
             </button>
         </div>
     </nav>
 
-    <!-- Modal de Login -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
+    <!-- Modal do Carrinho -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content cart-modal">
             <span class="close-modal">&times;</span>
-            <h2>Login</h2>
-            <input type="text" placeholder="Usuário" id="username">
-            <input type="password" placeholder="Senha" id="password">
-            <button id="loginBtn">Entrar</button>
+            <h2>Seu Carrinho</h2>
+
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart" id="emptyCart">Seu carrinho está vazio</p>
+            </div>
+
+            <div class="cart-summary">
+                <div class="cart-totals">
+                    <div class="cart-row">
+                        <span>Subtotal:</span>
+                        <span id="cartSubtotal">R$ 0,00</span>
+                    </div>
+                    <div class="cart-row">
+                        <span>Frete:</span>
+                        <span id="cartShipping">R$ 0,00</span>
+                    </div>
+                    <div class="cart-row total">
+                        <span>Total:</span>
+                        <span id="cartTotal">R$ 0,00</span>
+                    </div>
+                </div>
+
+                <button class="checkout-btn" id="checkoutBtn">Finalizar Compra</button>
+            </div>
         </div>
     </div>
 
     <!--HOME PAGE-->
     <div id="home" class="home_page">
         <div class="text_home">
-            <h2>Bem-vindo, <span id="nomeDoUsuario">Visitante</span></h2>
+            <h2>Bem-vindo à <span>JYZM Store</span></h2>
             <button class="home_button">Confira o que está à venda</button>
         </div>
 
         <div class="carousel-container">
-            <img src="img/carrosel1.png" class="carousel-image active" alt="Imagem 1">
-            <img src="img/carrosel2.png" class="carousel-image" alt="Imagem 2">
+            <img src="img/carrosel1.png" alt="Imagem 1" class="carousel-image active">
+            <img src="img/carrosel5.png" class="carousel-image" alt="Imagem 2">
             <img src="img/carrosel3.png" class="carousel-image" alt="Imagem 3">
-            <img src="img/carrosel4.png" class="carousel-image" alt="Imagem 4">
-            <img src="img/carrosel5.png" class="carousel-image" alt="Imagem 5">
+            <img src="img/carrosel2.png" class="carousel-image" alt="Imagem 4">
+            <img src="img/carrosel8.png" alt="Imagem 5" class="carousel-image">
 
             <button class="carousel-control prev">
                 <i class="fas fa-chevron-left"></i>
@@ -89,376 +113,421 @@
 
         <div class="shop_filters">
             <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="category1">Categoria 1</button>
-            <button class="filter-btn" data-filter="category2">Categoria 2</button>
-            <button class="filter-btn" data-filter="category3">Categoria 3</button>
+            <button class="filter-btn" data-filter="category1">Blusas e camisas</button>
+            <button class="filter-btn" data-filter="category2">Calças e bermudas</button>
+            <button class="filter-btn" data-filter="category3">Meias e Calçados</button>
+            <button class="filter-btn" data-filter="category4">Acessórios</button>
         </div>
 
         <div class="product_grid">
-            <div class="product_card" data-category="category1">
+
+            <!-- Produto 1 -->
+            <div class=" product_card" data-category="category1">
                 <img src="img/carrosel1.png" alt="Produto 1">
-                <h3>Produto 1</h3>
-                <p>R$ 99,90</p>
-                <button>Comprar</button>
+                <h3>Jaqueta JC-04</h3>
+                <p>R$ 324,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="P">P</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="G">G</button>
+                        <button class="size-btn" data-size="GG">GG</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
             </div>
+        
+                
 
-            <div class="product_card" data-category="category2">
+
+            <!-- Produto 2 -->
+            <div class=" product_card" data-category="category1">
                 <img src="img/carrosel2.png" alt="Produto 2">
-                <h3>Produto 2</h3>
-                <p>R$ 149,90</p>
-                <button>Comprar</button>
+                <h3>Jaqueta JC-05</h3>
+                <p>R$ 324,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="P">P</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="G">G</button>
+                        <button class="size-btn" data-size="GG">GG</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
             </div>
 
-            <div class="product_card" data-category="category3">
-                <img src="img/carrosel3.png" alt="Produto 3">
-                <h3>Produto 3</h3>
-                <p>R$ 199,90</p>
-                <button>Comprar</button>
-            </div>
-
-            <div class="product_card" data-category="category1">
-                <img src="img/carrosel4.png" alt="Produto 4">
-                <h3>Produto 4</h3>
-                <p>R$ 129,90</p>
-                <button>Comprar</button>
-            </div>
-
+            <!-- Produto 3 -->
             <div class="product_card" data-category="category2">
+                <img src="img/carrosel3.png" alt="Produto 3">
+                <h3>Bermuda SH-01</h3>
+                <p>R$ 108,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="38">38</button>
+                        <button class="size-btn" data-size="40">40</button>
+                        <button class="size-btn" data-size="42">42</button>
+                        <button class="size-btn" data-size="44">44</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="product_card" data-category="category3">
+                <img src="img/carrosel4.png" alt="Produto 4">
+                <h3>Slide YS-01</h3>
+                <p>R$ 108,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="36">36</button>
+                        <button class="size-btn" data-size="38">38</button>
+                        <button class="size-btn" data-size="40">40</button>
+                        <button class="size-btn" data-size="42">42</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 5 -->
+            <div class="product_card" data-category="category1">
                 <img src="img/carrosel5.png" alt="Produto 5">
-                <h3>Produto 5</h3>
-                <p>R$ 179,90</p>
-                <button>Comprar</button>
+                <h3>Blusa LS-01</h3>
+                <p>R$ 108,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="P">P</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="G">G</button>
+                        <button class="size-btn" data-size="GG">GG</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
             </div>
 
-            <div class="product_card" data-category="category3">
+            <!-- Produto 6 -->
+            <div class="product_card" data-category="category2">
                 <img src="img/carrosel6.png" alt="Produto 6">
-                <h3>Produto 6</h3>
+                <h3>Calça PT-02</h3>
+                <p>R$ 216,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="38">38</button>
+                        <button class="size-btn" data-size="40">40</button>
+                        <button class="size-btn" data-size="42">42</button>
+                        <button class="size-btn" data-size="44">44</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 7 -->
+            <div class="product_card" data-category="category1">
+                <img src="img/carrosel7.png" alt="Produto 7">
+                <h3>Blusa RC-03</h3>
+                <p>R$ 108,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="P">P</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="G">G</button>
+                        <button class="size-btn" data-size="GG">GG</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 8 -->
+            <div class="product_card" data-category="category2">
+                <img src="img/carrosel8.png" alt="Produto 8">
+                <h3>Calça SP-09</h3>
+                <p>R$ 215,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="38">38</button>
+                        <button class="size-btn" data-size="40">40</button>
+                        <button class="size-btn" data-size="42">42</button>
+                        <button class="size-btn" data-size="44">44</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 9 -->
+            <div class="product_card" data-category="category4">
+                <img src="img/carrosel9.png" alt="Produto 9">
+                <h3>Boné HT-01</h3>
+                <p>R$ 95,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 10 -->
+            <div class="product_card" data-category="category1">
+                <img src="img/carrosel10.jpg" alt="Produto 10">
+                <h3>Blusa de frio HD-02</h3>
                 <p>R$ 219,90</p>
-                <button>Comprar</button>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
             </div>
 
-            <div class="product_card" data-category="category3">
-                <img src="img/carrosel6.png" alt="Produto 7">
-                <h3>Produto 7</h3>
-                <p>R$ 239,90</p>
-                <button>Comprar</button>
+            <!-- Produto 11 -->
+            <div class="product_card" data-category="category1">
+                <img src="img/carrosel11.jpg" alt="Produto 11">
+                <h3>Blusa de frio HD-03</h3>
+                <p>R$ 219,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
             </div>
 
-            <div class="product_card" data-category="category3">
-                <img src="img/carrosel6.png" alt="Produto 8">
-                <h3>Produto 8</h3>
-                <p>R$ 259,90</p>
-                <button>Comprar</button>
+            <!-- Produto 12 -->
+            <div class="product_card" data-category="category4">
+                <img src="img/carrosel12.jpg" alt="Produto 12">
+                <h3>Oculos SG-01</h3>
+                <p>R$ 102,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
             </div>
 
+            <!-- Produto 13 -->
             <div class="product_card" data-category="category3">
-                <img src="img/carrosel6.png" alt="Produto 9">
-                <h3>Produto 9</h3>
-                <p>R$ 279,90</p>
-                <button>Comprar</button>
+                <img src="img/carrosel13.jpg" alt="Produto 13">
+                <h3>Meias SK-01</h3>
+                <p>R$ 52,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 14 -->
+            <div class="product_card" data-category="category3">
+                <img src="img/carrosel14.jpg" alt="Produto 14">
+                <h3>Tenis SL-01</h3>
+                <p>R$ 150,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 15 -->
+            <div class="product_card" data-category="category2">
+                <img src="img/carrosel15.png" alt="Produto 15">
+                <h3>Bermuda SH-10</h3>
+                <p>R$ 122,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 16 -->
+            <div class="product_card" data-category="category2">
+                <img src="img/carrosel16.png" alt="Produto 16">
+                <h3>Calça SP-02</h3>
+                <p>R$ 220,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 17 -->
+            <div class="product_card" data-category="category2">
+                <img src="img/carrosel17.png" alt="Produto 17">
+                <h3>Calça SP-03</h3>
+                <p>R$ 220,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 18 -->
+            <div class="product_card" data-category="category3">
+                <img src="img/carrosel18.png" alt="Produto 18">
+                <h3>Tenis SL-02 </h3>
+                <p>R$ 180,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 19 -->
+            <div class="product_card" data-category="category3">
+                <img src="img/carrosel19.png" alt="Produto 19">
+                <h3>Meia com solado PD-01 </h3>
+                <p>R$ 108,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 20 -->
+            <div class="product_card" data-category="category3">
+                <img src="img/carrosel20.png" alt="Produto 20">
+                <h3>Slide YS-02</h3>
+                <p>R$ 108,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 21 -->
+            <div class="product_card" data-category="category4">
+                <img src="img/carrosel21.png" alt="Produto 21">
+                <h3>Oculos SG-02</h3>
+                <p>R$ 102,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about">
+    <!-- ABOUT SECTION MELHORADA -->
+    <section id="about" class="about_section">
         <h2 class="shop_title">SOBRE NÓS</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed
-            erat molestie vehicula.</p>
+        <div class="about_content">
+            <div class="about_text">
+                <h3>Nossa História</h3>
+                <p>Fundada em 2020, a JYZ nasceu da paixão por moda streetwear autêntica e da vontade de oferecer peças
+                    exclusivas que expressam personalidade e estilo único. Começamos como uma pequena loja online e hoje
+                    nos orgulhamos de ser uma referência no segmento.</p>
+                <p>Nossa missão é democratizar o acesso à moda de qualidade, com peças que combinam design inovador,
+                    conforto excepcional e preços justos. Acreditamos que a moda é uma forma de expressão pessoal e
+                    queremos ajudar você a contar sua história através das roupas que veste.</p>
+            </div>
+
+            <div class="values">
+                <div class="value_item">
+                    <i class="fas fa-star"></i>
+                    <h4>Qualidade</h4>
+                    <p>Trabalhamos apenas com materiais de primeira linha e processos de produção rigorosos para
+                        garantir a durabilidade de nossas peças.</p>
+                </div>
+
+                <div class="value_item">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Sustentabilidade</h4>
+                    <p>Nos comprometemos com práticas sustentáveis em toda nossa cadeia produtiva, reduzindo nosso
+                        impacto ambiental.</p>
+                </div>
+
+                <div class="value_item">
+                    <i class="fas fa-heart"></i>
+                    <h4>Comunidade</h4>
+                    <p>Apoiamos artistas locais e construímos uma comunidade vibrante em torno da cultura streetwear.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact">
+    <!-- CONTACT SECTION MELHORADA -->
+    <section id="contact" class="contact_section">
         <h2 class="shop_title">CONTATO</h2>
-        <p>Entre em contato conosco através dos nossos canais de atendimento.</p>
+        <div class="contact_content">
+            <div class="contact_info">
+                <h3>Entre em Contato</h3>
+                <p>Estamos sempre disponíveis para tirar suas dúvidas, receber sugestões ou ajudar com qualquer questão
+                    relacionada aos nossos produtos.</p>
+            </div>
+
+            <div class="contact_methods">
+                <div class="contact_method">
+                    <i class="fas fa-envelope"></i>
+                    <h4>E-mail</h4>
+                    <p>contato@jyz.com.br</p>
+                    <p>vendas@jyz.com.br</p>
+                </div>
+
+                <div class="contact_method">
+                    <i class="fas fa-phone"></i>
+                    <h4>Telefone</h4>
+                    <p>(11) 9999-9999</p>
+                    <p>(11) 8888-8888</p>
+                </div>
+
+                <div class="contact_method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Endereço</h4>
+                    <p>Rua das Modas, 123</p>
+                    <p>São Paulo - SP</p>
+                    <p>CEP: 01234-567</p>
+                </div>
+            </div>
+
+            <div class="social_links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
     </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // CARROSSEL
-            const images = document.querySelectorAll('.carousel-image');
-            const indicators = document.querySelectorAll('.carousel-indicator');
-            const prevBtn = document.querySelector('.carousel-control.prev');
-            const nextBtn = document.querySelector('.carousel-control.next');
-            const carouselContainer = document.querySelector('.carousel-container');
-            let current = 0;
-            let interval;
-
-            function showImage(index) {
-                images.forEach(img => img.classList.remove('active'));
-                indicators.forEach(indicator => indicator.classList.remove('active'));
-
-                images[index].classList.add('active');
-                indicators[index].classList.add('active');
-                current = index;
-            }
-
-            function nextImage() {
-                let next = (current + 1) % images.length;
-                showImage(next);
-            }
-
-            function prevImage() {
-                let prev = (current - 1 + images.length) % images.length;
-                showImage(prev);
-            }
-
-            function startCarousel() {
-                interval = setInterval(nextImage, 3000);
-            }
-
-            function stopCarousel() {
-                clearInterval(interval);
-            }
-
-            nextBtn.addEventListener('click', () => {
-                stopCarousel();
-                nextImage();
-                startCarousel();
-            });
-
-            prevBtn.addEventListener('click', () => {
-                stopCarousel();
-                prevImage();
-                startCarousel();
-            });
-
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', () => {
-                    stopCarousel();
-                    showImage(index);
-                    startCarousel();
-                });
-            });
-
-            carouselContainer.addEventListener('mouseenter', stopCarousel);
-            carouselContainer.addEventListener('mouseleave', startCarousel);
-
-            startCarousel();
-
-            // NAVBAR SCROLL EFFECT (fixa, sem esconder)
-            const navbar = document.querySelector('.navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-
-            // NAVEGAÇÃO ATIVA
-            const sections = document.querySelectorAll("section, .home_page");
-            const navLinks = document.querySelectorAll(".nav_itens a");
-
-            function updateActiveNav() {
-                let currentSectionId = "";
-
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 120; // margem para navbar
-                    const sectionHeight = section.offsetHeight;
-                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                        currentSectionId = section.getAttribute("id");
-                    }
-                });
-
-                // Se não achou nenhuma seção, marcar home
-                if (!currentSectionId) {
-                    currentSectionId = "home";
-                }
-
-                navLinks.forEach(link => {
-                    link.classList.remove("active");
-                    if (link.getAttribute("href").includes(currentSectionId)) {
-                        link.classList.add("active");
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove("active");
-                    if (link.getAttribute("href").includes(currentSectionId)) {
-                        link.classList.add("active");
-                    }
-                });
-            }
-
-            window.addEventListener("scroll", updateActiveNav);
-            updateActiveNav(); // inicial
-
-            // MODAL DE LOGIN
-            const userIcon = document.getElementById('userIcon');
-            const loginModal = document.getElementById('loginModal');
-            const closeModal = document.querySelector('.close-modal');
-            const loginBtn = document.getElementById('loginBtn');
-            const usernameInput = document.getElementById('username');
-            const passwordInput = document.getElementById('password');
-            const usernameDisplay = document.getElementById('nomeDoUsuario');
-
-            userIcon.addEventListener('click', () => {
-                loginModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
-
-            closeModal.addEventListener('click', () => {
-                loginModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-
-            loginBtn.addEventListener('click', () => {
-                if (usernameInput.value.trim() !== '' && passwordInput.value.trim() !== '') {
-                    usernameDisplay.textContent = usernameInput.value;
-                    loginModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-
-                    userIcon.style.color = '#4a90e2';
-                    setTimeout(() => {
-                        userIcon.style.color = '';
-                    }, 2000);
-                } else {
-                    alert('Por favor, preencha todos os campos');
-                }
-            });
-
-            window.addEventListener('click', (e) => {
-                if (e.target === loginModal) {
-                    loginModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-
-            // FILTRO DE PRODUTOS
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const productCards = document.querySelectorAll('.product_card');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-
-                    const filter = button.getAttribute('data-filter');
-
-                    productCards.forEach(card => {
-                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-
-            // FILTRO DE PESQUISA
-            const searchInput = document.querySelector('.inputFilter');
-            const shopSection = document.getElementById('shop');
-            let searchTimeout;
-
-            searchInput.addEventListener('input', () => {
-                const searchText = searchInput.value.toLowerCase();
-
-                if (searchText.length > 0) {
-                    clearTimeout(searchTimeout);
-                    searchTimeout = setTimeout(() => {
-                        shopSection.scrollIntoView({ behavior: 'smooth' });
-                    }, 800);
-                }
-
-                productCards.forEach(card => {
-                    const productName = card.querySelector('h3').textContent.toLowerCase();
-                    if (productName.includes(searchText)) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-
-            // MENU MOBILE
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navItems = document.querySelector('.nav_itens');
-
-            menuToggle.addEventListener('click', () => {
-                navItems.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-            });
-
-            document.querySelectorAll('.nav_itens a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navItems.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                });
-            });
-
-            // Botão home leva para shop
-            document.querySelector('.home_button').addEventListener('click', () => {
-                shopSection.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Smooth scroll com inércia no mouse
-        let currentScroll = window.scrollY;
-        let targetScroll = window.scrollY;
-        let isScrolling = false;
-
-        function smoothScroll() {
-            currentScroll += (targetScroll - currentScroll) * 0.04; // 0.1 = suavidade (pode ajustar)
-            window.scrollTo(0, currentScroll);
-
-            if (Math.abs(targetScroll - currentScroll) > 0.5) {
-                requestAnimationFrame(smoothScroll);
-            } else {
-                isScrolling = false;
-            }
-        }
-
-        window.addEventListener("wheel", (e) => {
-            e.preventDefault(); // cancela o scroll padrão
-            targetScroll += e.deltaY; // quanto rolar
-            targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight)); // limite
-
-            if (!isScrolling) {
-                isScrolling = true;
-                requestAnimationFrame(smoothScroll);
-            }
-        }, { passive: false });
-        // TOGGLE DO TEMA CLARO/ESCURO
-    document.addEventListener('DOMContentLoaded', function() {
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('i');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        
-        // Verificar se há uma preferência salva ou usar a preferência do sistema
-        const savedTheme = localStorage.getItem('theme');
-        const systemTheme = prefersDarkScheme.matches ? 'dark' : 'light';
-        const currentTheme = savedTheme || systemTheme;
-        
-        // Aplicar o tema inicial
-        if (currentTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        } else {
-            document.documentElement.removeAttribute('data-theme');
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
-        }
-        
-        // Alternar entre temas
-        themeToggle.addEventListener('click', () => {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            
-            if (isDark) {
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            }
-        });
-    });
-    </script>
+    <!-- Notificação de produto adicionado -->
+    <div class="cart-notification" id="cartNotification">
+        Produto adicionado ao carrinho!
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
