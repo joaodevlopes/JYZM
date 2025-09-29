@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jyz</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- ICONS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="img/logojyzclaro.png" alt="logo">
+        </div>
+
+        <button class="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav_itens">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="icons">
+            <div class="search-container">
+                <input type="text" placeholder="Pesquisar" class="inputFilter">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="cart-icon-container">
+                <i class="fas fa-shopping-cart" id="cartIcon"></i>
+                <span class="cart-counter">0</span>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Alternar modo claro/escuro">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Modal do Carrinho -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content cart-modal">
+            <span class="close-modal">&times;</span>
+            <h2>Seu Carrinho</h2>
+
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart" id="emptyCart">Seu carrinho está vazio</p>
+            </div>
+
+            <div class="cart-summary">
+                <div class="cart-totals">
+                    <div class="cart-row">
+                        <span>Subtotal:</span>
+                        <span id="cartSubtotal">R$ 0,00</span>
+                    </div>
+                    <div class="cart-row">
+                        <span>Frete:</span>
+                        <span id="cartShipping">R$ 0,00</span>
+                    </div>
+                    <div class="cart-row total">
+                        <span>Total:</span>
+                        <span id="cartTotal">R$ 0,00</span>
+                    </div>
+                </div>
+
+                <button class="checkout-btn" id="checkoutBtn">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <!--HOME PAGE-->
+    <div id="home" class="home_page">
+        <div class="text_home">
+            <h2>Bem-vindo à <span>JYZM Store</span></h2>
+            <button class="home_button">Confira o que está à venda</button>
+        </div>
+
+        <div class="carousel-container">
+            <img src="img/carrosel1.png" alt="Imagem 1" class="carousel-image active">
+            <img src="img/carrosel5.png" class="carousel-image" alt="Imagem 2">
+            <img src="img/carrosel3.png" class="carousel-image" alt="Imagem 3">
+            <img src="img/carrosel2.png" class="carousel-image" alt="Imagem 4">
+            <img src="img/carrosel8.png" alt="Imagem 5" class="carousel-image">
+
+            <button class="carousel-control prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-control next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div class="carousel-indicators">
+                <div class="carousel-indicator active" data-index="0"></div>
+                <div class="carousel-indicator" data-index="1"></div>
+                <div class="carousel-indicator" data-index="2"></div>
+                <div class="carousel-indicator" data-index="3"></div>
+                <div class="carousel-indicator" data-index="4"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--SHOP PAGE-->
+    <section id="shop" class="shop_section">
+        <h2 class="shop_title">SHOP</h2>
+
+        <div class="shop_filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="category1">Blusas e camisas</button>
+            <button class="filter-btn" data-filter="category2">Calças e bermudas</button>
+            <button class="filter-btn" data-filter="category3">Meias e Calçados</button>
+            <button class="filter-btn" data-filter="category4">Acessórios</button>
+        </div>
+
+        <div class="product_grid">
+
+            <!-- Produto 1 -->
+            <div class=" product_card" data-category="category1">
+                <img src="img/carrosel1.png" alt="Produto 1">
+                <h3>Jaqueta JC-04</h3>
+                <p>R$ 324,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="P">P</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="G">G</button>
+                        <button class="size-btn" data-size="GG">GG</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        
+                
+
+
+            <!-- Produto 2 -->
+            <div class=" product_card" data-category="category1">
+                <img src="img/carrosel2.png" alt="Produto 2">
+                <h3>Jaqueta JC-05</h3>
+                <p>R$ 324,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="P">P</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="G">G</button>
+                        <button class="size-btn" data-size="GG">GG</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="product_card" data-category="category2">
+                <img src="img/carrosel3.png" alt="Produto 3">
+                <h3>Bermuda SH-01</h3>
+                <p>R$ 108,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="38">38</button>
+                        <button class="size-btn" data-size="40">40</button>
+                        <button class="size-btn" data-size="42">42</button>
+                        <button class="size-btn" data-size="44">44</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="product_card" data-category="category3">
+                <img src="img/carrosel4.png" alt="Produto 4">
+                <h3>Slide YS-01</h3>
+                <p>R$ 108,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="36">36</button>
+                        <button class="size-btn" data-size="38">38</button>
+                        <button class="size-btn" data-size="40">40</button>
+                        <button class="size-btn" data-size="42">42</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 5 -->
+            <div class="product_card" data-category="category1">
+                <img src="img/carrosel5.png" alt="Produto 5">
+                <h3>Blusa LS-01</h3>
+                <p>R$ 108,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="P">P</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="G">G</button>
+                        <button class="size-btn" data-size="GG">GG</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 6 -->
+            <div class="product_card" data-category="category2">
+                <img src="img/carrosel6.png" alt="Produto 6">
+                <h3>Calça PT-02</h3>
+                <p>R$ 216,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="38">38</button>
+                        <button class="size-btn" data-size="40">40</button>
+                        <button class="size-btn" data-size="42">42</button>
+                        <button class="size-btn" data-size="44">44</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 7 -->
+            <div class="product_card" data-category="category1">
+                <img src="img/carrosel7.png" alt="Produto 7">
+                <h3>Blusa RC-03</h3>
+                <p>R$ 108,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="P">P</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="G">G</button>
+                        <button class="size-btn" data-size="GG">GG</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 8 -->
+            <div class="product_card" data-category="category2">
+                <img src="img/carrosel8.png" alt="Produto 8">
+                <h3>Calça SP-09</h3>
+                <p>R$ 215,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="38">38</button>
+                        <button class="size-btn" data-size="40">40</button>
+                        <button class="size-btn" data-size="42">42</button>
+                        <button class="size-btn" data-size="44">44</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 9 -->
+            <div class="product_card" data-category="category4">
+                <img src="img/carrosel9.png" alt="Produto 9">
+                <h3>Boné HT-01</h3>
+                <p>R$ 95,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 10 -->
+            <div class="product_card" data-category="category1">
+                <img src="img/carrosel10.jpg" alt="Produto 10">
+                <h3>Blusa de frio HD-02</h3>
+                <p>R$ 219,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 11 -->
+            <div class="product_card" data-category="category1">
+                <img src="img/carrosel11.jpg" alt="Produto 11">
+                <h3>Blusa de frio HD-03</h3>
+                <p>R$ 219,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 12 -->
+            <div class="product_card" data-category="category4">
+                <img src="img/carrosel12.jpg" alt="Produto 12">
+                <h3>Oculos SG-01</h3>
+                <p>R$ 102,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 13 -->
+            <div class="product_card" data-category="category3">
+                <img src="img/carrosel13.jpg" alt="Produto 13">
+                <h3>Meias SK-01</h3>
+                <p>R$ 52,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 14 -->
+            <div class="product_card" data-category="category3">
+                <img src="img/carrosel14.jpg" alt="Produto 14">
+                <h3>Tenis SL-01</h3>
+                <p>R$ 150,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 15 -->
+            <div class="product_card" data-category="category2">
+                <img src="img/carrosel15.png" alt="Produto 15">
+                <h3>Bermuda SH-10</h3>
+                <p>R$ 122,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 16 -->
+            <div class="product_card" data-category="category2">
+                <img src="img/carrosel16.png" alt="Produto 16">
+                <h3>Calça SP-02</h3>
+                <p>R$ 220,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 17 -->
+            <div class="product_card" data-category="category2">
+                <img src="img/carrosel17.png" alt="Produto 17">
+                <h3>Calça SP-03</h3>
+                <p>R$ 220,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 18 -->
+            <div class="product_card" data-category="category3">
+                <img src="img/carrosel18.png" alt="Produto 18">
+                <h3>Tenis SL-02 </h3>
+                <p>R$ 180,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 19 -->
+            <div class="product_card" data-category="category3">
+                <img src="img/carrosel19.png" alt="Produto 19">
+                <h3>Meia com solado PD-01 </h3>
+                <p>R$ 108,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 20 -->
+            <div class="product_card" data-category="category3">
+                <img src="img/carrosel20.png" alt="Produto 20">
+                <h3>Slide YS-02</h3>
+                <p>R$ 108,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 21 -->
+            <div class="product_card" data-category="category4">
+                <img src="img/carrosel21.png" alt="Produto 21">
+                <h3>Oculos SG-02</h3>
+                <p>R$ 102,90</p>
+                <button class="buy-btn">Comprar</button>
+                <div class="size-selector">
+                    <div class="size-options">
+                        <button class="size-btn" data-size="Único">Único</button>
+                    </div>
+                    <button class="add-to-cart-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION MELHORADA -->
+    <section id="about" class="about_section">
+        <h2 class="shop_title">SOBRE NÓS</h2>
+        <div class="about_content">
+            <div class="about_text">
+                <h3>Nossa História</h3>
+                <p>Fundada em 2020, a JYZ nasceu da paixão por moda streetwear autêntica e da vontade de oferecer peças
+                    exclusivas que expressam personalidade e estilo único. Começamos como uma pequena loja online e hoje
+                    nos orgulhamos de ser uma referência no segmento.</p>
+                <p>Nossa missão é democratizar o acesso à moda de qualidade, com peças que combinam design inovador,
+                    conforto excepcional e preços justos. Acreditamos que a moda é uma forma de expressão pessoal e
+                    queremos ajudar você a contar sua história através das roupas que veste.</p>
+            </div>
+
+            <div class="values">
+                <div class="value_item">
+                    <i class="fas fa-star"></i>
+                    <h4>Qualidade</h4>
+                    <p>Trabalhamos apenas com materiais de primeira linha e processos de produção rigorosos para
+                        garantir a durabilidade de nossas peças.</p>
+                </div>
+
+                <div class="value_item">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Sustentabilidade</h4>
+                    <p>Nos comprometemos com práticas sustentáveis em toda nossa cadeia produtiva, reduzindo nosso
+                        impacto ambiental.</p>
+                </div>
+
+                <div class="value_item">
+                    <i class="fas fa-heart"></i>
+                    <h4>Comunidade</h4>
+                    <p>Apoiamos artistas locais e construímos uma comunidade vibrante em torno da cultura streetwear.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION MELHORADA -->
+    <section id="contact" class="contact_section">
+        <h2 class="shop_title">CONTATO</h2>
+        <div class="contact_content">
+            <div class="contact_info">
+                <h3>Entre em Contato</h3>
+                <p>Estamos sempre disponíveis para tirar suas dúvidas, receber sugestões ou ajudar com qualquer questão
+                    relacionada aos nossos produtos.</p>
+            </div>
+
+            <div class="contact_methods">
+                <div class="contact_method">
+                    <i class="fas fa-envelope"></i>
+                    <h4>E-mail</h4>
+                    <p>contato@jyz.com.br</p>
+                    <p>vendas@jyz.com.br</p>
+                </div>
+
+                <div class="contact_method">
+                    <i class="fas fa-phone"></i>
+                    <h4>Telefone</h4>
+                    <p>(11) 9999-9999</p>
+                    <p>(11) 8888-8888</p>
+                </div>
+
+                <div class="contact_method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Endereço</h4>
+                    <p>Rua das Modas, 123</p>
+                    <p>São Paulo - SP</p>
+                    <p>CEP: 01234-567</p>
+                </div>
+            </div>
+
+            <div class="social_links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notificação de produto adicionado -->
+    <div class="cart-notification" id="cartNotification">
+        Produto adicionado ao carrinho!
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
